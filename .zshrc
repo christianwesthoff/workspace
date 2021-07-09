@@ -19,13 +19,18 @@ if [[ ! -f "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   sleep .5
 
+  # Install brew packages
   brew install $(<.brew-packages)
 
+  # Install code extensions
   xargs -L 1 /bin/sh -c 'code --install-extension $0' <.vscode-extensions
-  
-	/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  # Install oh-my-zsh
+  /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   sleep .5
 
+  echo "Done installing :)"
+  wait_for_input
 
   exit 0
 fi
