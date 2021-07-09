@@ -1,6 +1,6 @@
 if [[ ! -f "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]]; then
   wait_for_input () {
-      echo "Press any key to continue"
+      echo $1
     while [ true ] ; do
       read -t 3 -n 1
       if [ $? = 0 ] ; then
@@ -11,9 +11,11 @@ if [[ ! -f "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]]; then
     done
   }
 
+  wait_for_input "Press any key to start"
+
   # Install xcode-select
   xcode-select --install
-  wait_for_input
+  wait_for_input "Press any key to continue"
 
   # Install homebrew
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -30,7 +32,7 @@ if [[ ! -f "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]]; then
   sleep .5
 
   echo "Done installing :)"
-  wait_for_input
+  wait_for_input "Press any key to exit"
 
   exit 0
 fi
@@ -187,4 +189,4 @@ alias gclm="git commit --reuse-message=HEAD"
 # yarn
 alias yi="yarn install"
 
-alias split="gsplit"
+# alias split="gsplit"
