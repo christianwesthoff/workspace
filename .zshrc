@@ -180,8 +180,9 @@ alias bu="brew upgrade"
 
 # git
 alias gs="git status"
+alias ga="git add --all"
 alias gpo="git pull origin"
-alias gcr="git commit --reuse-message=HEAD"
+alias gclm="git commit --reuse-message=HEAD"
 
 # yarn
 alias yi="yarn install"
