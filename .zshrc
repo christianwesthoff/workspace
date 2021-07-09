@@ -23,7 +23,7 @@ if [[ ! -f "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]]; then
   brew install $(<.brew-packages)
 
   # Install code extensions
-  xargs -L 1 /bin/sh -c 'code --install-extension $0' <.vscode-extensions
+  xargs -L 1 /bin/sh -c 'code --install-extension $0 && code --disable-extension $0' <.vscode-extensions
 
   # Install oh-my-zsh
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
