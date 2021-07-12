@@ -8,9 +8,7 @@ awscli
 azure-cli
 blueutil
 bzip2
-cabextract
-code
-cask
+google-chrome
 clamav
 curl
 deno
@@ -20,8 +18,6 @@ docker
 docker-machine
 exif
 ffmpeg
-fluxcd/tap/flux
-fluxctl
 freetds
 gh
 gifsicle
@@ -52,7 +48,6 @@ libzip
 macvim
 mas
 mercurial
-microsoft/mssql-release/mssql-tools
 mp4v2
 mysql
 nmap
@@ -80,3 +75,7 @@ zlib
 zsh-autosuggestions
 zsh-history-substring-search
 zsh-syntax-highlighting
+iterm2
+maccy
+appcleaner
+rectangle
