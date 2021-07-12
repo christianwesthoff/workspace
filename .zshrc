@@ -19,6 +19,9 @@ if [[ ! -f "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]]; then
 
   # Install homebrew
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/christianwesthoff/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
   sleep .5
 
   # Install brew packages
@@ -30,6 +33,10 @@ if [[ ! -f "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]]; then
   # Install oh-my-zsh
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   sleep .5
+
+  git clone https://github.com/powerline/fonts.git
+  ./fonts/install.sh
+  rm -rf ./fonts/
 
   echo "Done installing :)"
   wait_for_input "Press any key to exit"
