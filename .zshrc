@@ -17,12 +17,13 @@ if [[ ! -f "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]]; then
   xcode-select --install
   wait_for_input "Press any key to continue"
 
+  softwareupdate --install-rosetta --agree-to-license
+
   # Install homebrew
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/christianwesthoff/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  sleep .5
 
   # Install brew packages
   brew install $(<.brew-packages)
@@ -32,11 +33,11 @@ if [[ ! -f "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]]; then
 
   # Install oh-my-zsh
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  sleep .5
 
-  git clone https://github.com/powerline/fonts.git
-  ./fonts/install.sh
-  rm -rf ./fonts/
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
 
   echo "Done installing :)"
   wait_for_input "Press any key to exit"
@@ -197,3 +198,5 @@ alias gclm="git commit --reuse-message=HEAD"
 alias yi="yarn install"
 
 # alias split="gsplit"
+
+alias cds="cd ~/Source"
