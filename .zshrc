@@ -48,16 +48,16 @@ fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/christianwesthoff/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -123,7 +123,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions history-substring-search zsh-syntax-highlighting zsh_reload last-working-dir thefuck iterm2 git osx docker docker-compose brew)
+plugins=(zsh-autosuggestions history-substring-search zsh-syntax-highlighting last-working-dir thefuck iterm2 git macos docker docker-compose brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -181,7 +181,7 @@ alias emulator=$ANDROID_SDK_ROOT/emulator/emulator
 alias aapt=$ANDROID_SDK_ROOT/build-tools/28.0.3/aapt
 
 # docker
-alias docker-start="open --hide --background -a Docker"
+alias docker-start="open --background -a Docker && while ! docker system info > /dev/null 2>&1; do sleep 1; done"
 alias mssql-start="docker-compose --project-name mssql --file ~/source/docker/compose/mssql-compose.yml up -d"
 alias mongodb-start="docker-compose  --project-name mongodb --file ~/source/docker/compose/mongo-compose.yml up -d"
 
@@ -196,6 +196,7 @@ alias gclm="git commit --reuse-message=HEAD"
 
 # yarn
 alias yi="yarn install"
+alias ya="yarn add"
 
 # alias split="gsplit"
 
